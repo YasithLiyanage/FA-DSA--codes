@@ -1,10 +1,10 @@
 #include <stdio.h>
 
 
-void swap(int *x, int *y){}
+void swap(int *x, int *y);
 void quicksort(int array[], int length);
 void quicksort_recursion(int array[],int low, int high);
-void partition(int array[], int low, int high);
+int partition(int array[], int low, int high);
 
 
 int main (){
@@ -43,14 +43,16 @@ void quicksort(int array[], int length){
 
 void quicksort_recursion(int array[],int low, int high){
 
+    if (low < high){
     int pivot_index = partition(array,low,high);
     quicksort_recursion(array, low, pivot_index -1);
     quicksort_recursion(array, pivot_index +1, high);
 
+    }
 }
 
 
-void partition(int array[], int low, int high){
+int partition(int array[], int low, int high){
 
     int pivot_value = array[high];
 
