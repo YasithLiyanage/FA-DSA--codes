@@ -1,9 +1,8 @@
 #include <stdio.h>
 
 
-void selection_sort(int arr[]){
+void selection_sort(int arr[],int n){
 
-   int n = sizeof(arr) / sizeof(arr[0]);
     int i,j;
 
     for (j=0; j<n-1; j++){
@@ -18,8 +17,8 @@ void selection_sort(int arr[]){
         if(j != smallest){
 
             int temp = arr[j];
-            arr[j] = smallest;
-            smallest = temp;
+            arr[j] = arr[smallest];
+            arr[smallest] = temp;
         }
 
 
@@ -31,8 +30,10 @@ void selection_sort(int arr[]){
 int main(){
 
 int arr[10] = {3,6,4,7,2,1,9,0,5,8};
+  int n = sizeof(arr) / sizeof(arr[0]);
 
-selection_sort(arr);
+
+selection_sort(arr,n);
 
 for(int i = 0; i<10; i++){
 
